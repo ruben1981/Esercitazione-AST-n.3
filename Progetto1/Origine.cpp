@@ -44,7 +44,7 @@ void fillMatrix(int, int, float**);				//popola la matrice manualmente o con num
 void printMatrix(float **, int, int);			//stampa a video la matrice;
 float **sum(float **, float **, int, int);		//somma due matrici passate come parametro, assieme alle loro dimensioni
 float **sub(float **, float **, int, int);		//sottrae una matrice dall'altra; le matrici e le loro dimensioni sono passate come parametri
-float **mul(float **, float **, int, int, int); //moltiplica due matrici tra loro. L'algoritmo Ë quello classico, con T=O(n^3)
+float **mul(float **, float **, int, int, int); //moltiplica due matrici tra loro. L'algoritmo √® quello classico, con T=O(n^3)
 void trans(float **, int, int);					//traspone la matrice data, passata come parametro assieme alle sue dimensioni
 int retry();									//torna al menu di scelta dell'operazione da compiere.
 
@@ -57,7 +57,7 @@ int main() {
 
 	do {
 		while (ans == -1) {							//ans definisce il tipo di operazione da effettuare, 
-													//inizializzata a -1 puÚ assumere valori da 0 a 3
+													//inizializzata a -1 pu√≤ assumere valori da 0 a 3
 			
 			puts("Scegliere il tipo di operazione: "); 
 			puts("0: Somma");
@@ -112,10 +112,10 @@ int main() {
 				
 				freeMatrix(A, rows);
 				freeMatrix(B, rows);
-				freeMatrix (C, rows);
+				freeMatrix(C, rows);
 
 				//vengono settate le variabili del controllo di flusso
-				//correct: Ë il flag che, settato a 0, permette al do-while
+				//correct: √® il flag che, settato a 0, permette al do-while
 				//di riprendere da capo per effettuare un'altra operazioone
 				//ans viene reimpostato a -1 per permettere la stampa a video del menu
 				
@@ -128,7 +128,7 @@ int main() {
 				int rows = 0; 
 				int cols = 0;
 
-				/*Stesse peculiarit‡ della somma, a parte la chiamata alla funzione sub(),
+				/*Stesse peculiarit√† della somma, a parte la chiamata alla funzione sub(),
 				che prende in ingresso gli stessi parametri di sum()*/
 
 				puts("\nDifferenza di A e B");
@@ -166,7 +166,7 @@ int main() {
 				int colsA = 0; 
 				int colsB = 0;
 
-				/*qui la particolarit‡ Ë che viene chiamata la funzione mul(A,B,rowsA,colsA,colsB)
+				/*qui la particolarit√† √® che viene chiamata la funzione mul(A,B,rowsA,colsA,colsB)
 				  che prende in ingresso le dimensioni di A e il numero di colonne di B, essendo la
 				  matrice-prodotto di dimensioni (rowsA,colsB), sussistendo il vincolo colsA=rowsB */
 				
@@ -236,7 +236,7 @@ int main() {
 //ans assume valori non consentiti: si ristampa il menu
 			default: {
 				puts("\nvalore errato. Riprovare: ");
-				correct = 0;			//questo flag fa sÏ che il do-while riprenda da capo
+				correct = 0;			//questo flag fa s√¨ che il do-while riprenda da capo
 				ans = -1;				//questo flag permette di ristampare a video il menu di scelta
 				break;
 			}
@@ -253,7 +253,7 @@ int main() {
 
 /*Tramite questa funzione, chiamata dal main dopo l'allocazione di una matrice operanda, 
   viene popolata la matrice, passata per riferimento assieme alle sue dimensioni passate per valore.
-  Il popolamento puÚ avvenire a mano, tramite inserimento di ciascun elemento 
+  Il popolamento pu√≤ avvenire a mano, tramite inserimento di ciascun elemento 
   da parte dell'utente, oppure automaticamente, richiedendo all'utente solo 
   l'inserimento da tastiera di un valore massimo da generare tramite chiamata a rand()
   Le matrici generate sono, ovviamente, a elementi REALI */
@@ -346,7 +346,7 @@ int retry() {
 //------------------------SOMMA DI MATRICI------------------------
 /*La funzione prende le due matrici addende A e B per riferimento,
   assieme alle loro dimensioni (devono essere uguali per entrambe
-  perchÈ A e B possano esseere sommate) e restituisce la matrice
+  perch√© A e B possano esseere sommate) e restituisce la matrice
   risultante C, i cui valori sono C[i][j]=A[i][j]+B[i][j]*/
 
 float **sum(float **A, float **B, int rows, int cols) {
@@ -364,7 +364,7 @@ float **sum(float **A, float **B, int rows, int cols) {
 //------------------DIFFERENZA DI MATRICI------------------------//
 /*La funzione prende le due matrici A e B per riferimento,
 assieme alle loro dimensioni (devono essere uguali per entrambe
-perchÈ A e B possano esseere sommate) e restituisce la matrice
+perch√© A e B possano esseere sommate) e restituisce la matrice
 risultante C, i cui valori sono C[i][j] = A[i][j] - B[i][j]*/
 
 float **sub(float **A, float **B, int rows, int cols) {
@@ -383,13 +383,13 @@ float **sub(float **A, float **B, int rows, int cols) {
 //---------------------PRODOTTO DI MATRICI------------------------//
 /*La funzione prende le due matrici addende A e B per riferimento,
 assieme alle dimensioni di A rowsA, colsA e al numero di colonne di B
-(deve essere colsA = rowsB perchÈ A e B possano esseere moltiplicate) 
+(deve essere colsA = rowsB perch√© A e B possano esseere moltiplicate) 
 e restituisce la matrice risultante C, i cui valori di ciascun elemento
 sono dati dalla sommatoria C[i][j] += A[i][k]+B[k][j].
-L'algoritmo Ë quello pi˘ intuitivo, avente complessit‡ O(n^3) in quanto richiede
+L'algoritmo √® quello pi√π intuitivo, avente complessit√† O(n^3) in quanto richiede
 l'esecuzione di tre cicli for annidati*/
 
-/*TODO: implementare l'algoritmo meno costoso, quello di complessit‡ O(n^lg(7))*/
+/*TODO: implementare l'algoritmo meno costoso, quello di complessit√† O(n^lg(7))*/
 
 float **mul(float **A, float **B, int rowsA, int colsA, int colsB) {
 	
