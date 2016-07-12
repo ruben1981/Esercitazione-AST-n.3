@@ -40,13 +40,13 @@ void freeMatrix(float** A, int rows) {
 	free(A);
 }
 
-void fillMatrix(int, int, float**);				//popola la matrice manualmente o con numeri generati casualmente
+void fillMatrix(int, int, float**);			//popola la matrice manualmente o con numeri generati casualmente
 void printMatrix(float **, int, int);			//stampa a video la matrice;
 float **sum(float **, float **, int, int);		//somma due matrici passate come parametro, assieme alle loro dimensioni
 float **sub(float **, float **, int, int);		//sottrae una matrice dall'altra; le matrici e le loro dimensioni sono passate come parametri
-float **mul(float **, float **, int, int, int); //moltiplica due matrici tra loro. L'algoritmo è quello classico, con T=O(n^3)
-void trans(float **, int, int);					//traspone la matrice data, passata come parametro assieme alle sue dimensioni
-int retry();									//torna al menu di scelta dell'operazione da compiere.
+float **mul(float **, float **, int, int, int); 	//moltiplica due matrici tra loro. L'algoritmo è quello classico, con T=O(n^3)
+void trans(float **, int, int);				//traspone la matrice data, passata come parametro assieme alle sue dimensioni
+int retry();						//torna al menu di scelta dell'operazione da compiere.
 
 int main() {
 	/*Ho preferito far scegliere il tipo di operazione prima di inserire le matrici,
@@ -57,7 +57,7 @@ int main() {
 
 	do {
 		while (ans == -1) {							//ans definisce il tipo di operazione da effettuare, 
-													//inizializzata a -1 può assumere valori da 0 a 3
+											//inizializzata a -1 può assumere valori da 0 a 3
 			
 			puts("Scegliere il tipo di operazione: "); 
 			puts("0: Somma");
@@ -237,7 +237,7 @@ int main() {
 			default: {
 				puts("\nvalore errato. Riprovare: ");
 				correct = 0;			//questo flag fa sì che il do-while riprenda da capo
-				ans = -1;				//questo flag permette di ristampare a video il menu di scelta
+				ans = -1;			//questo flag permette di ristampare a video il menu di scelta
 				break;
 			}
 
